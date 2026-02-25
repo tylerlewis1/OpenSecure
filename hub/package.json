@@ -1,0 +1,27 @@
+{
+  "name": "opensecure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylerlewis1/OpenSecure.git"
+  },
+  "keywords": [
+    "Security"
+  ],
+  "author": "Tyler Lewis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylerlewis1/OpenSecure/issues"
+  },
+  "homepage": "https://github.com/tylerlewis1/OpenSecure#readme",
+  "dependencies": {
+    "aedes": "^0.51.2",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  }
+}
