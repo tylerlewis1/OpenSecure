@@ -1,8 +1,6 @@
 const router = require('express').Router();
+const loginHandler = require('./auth/login.js');
 
-
-router.post("/login", (req, res) => {
-    console.log("Login endpoint hit with body:", req.body);
-});
+router.post("/login", loginHandler);
 
 module.exports = router;
