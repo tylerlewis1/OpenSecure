@@ -1,0 +1,25 @@
+{
+  "tokens": [
+    {
+      "token": "0kj4pzb7icn",
+      "username": "admin",
+      "role": "admin"
+    },
+    {
+      "token": "i4j6n5bbpdm",
+      "username": "admin",
+      "role": "admin"
+    },
+    {
+      "token": "h6j0pwfoly4",
+      "username": "admin",
+      "role": "admin"
+    },
+    {
+      "token": "9bhr8odjfzi",
+      "username": "admin",
+      "role": "admin",
+      "createdAt": "2026-02-28T05:20:00.955Z"
+    }
+  ]
+}
