@@ -20,6 +20,6 @@ export default async function useAuth() {
     checkForAuthToken: async () => {
       if (!token) return null;
       return token;
-    }
+    }   
   };
 }
