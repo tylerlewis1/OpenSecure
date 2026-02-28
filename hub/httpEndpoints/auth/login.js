@@ -1,7 +1,5 @@
-const express = require('express');
 const users = require('./users.json');
 const fs = require('fs');
-const { create } = require('domain');
 const tokenStore = require(__dirname + '/tokenStore.json');
 module.exports = async (req, res) => {
     const username = req.body.username;
