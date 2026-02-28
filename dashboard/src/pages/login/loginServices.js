@@ -1,4 +1,5 @@
 import env from '../../../config.json';
+import useAuth from '../../background/useAuth.js';
 export default function LoginService() {
     const login = async (username, password, setLoading) => {
         //TODO add encryption here
@@ -13,7 +14,8 @@ export default function LoginService() {
         setLoading(false); 
         if(response.status == 401) return alert('Invalid credentials');
         const data = await response.json();
-        localStorage.setItem('authToken', data.token);
+        const auth = useAuth();
+        auth.setToken(data.token);
         
     }
 
