@@ -1,6 +1,6 @@
 import useAuth from './background/useAuth.js';
 import Login from './pages/login/login.jsx';
-import App from './pages/App.jsx';
+import App from './pages/dashboard/App.jsx';
 import { StrictMode, useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';

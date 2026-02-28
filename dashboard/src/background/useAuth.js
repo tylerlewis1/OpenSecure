@@ -71,7 +71,6 @@ class AuthManager {
     }
   }
 
-  // Method to manually set token (call this when you login/logout)
   async setToken(token) {
     await this.storage.set({ authToken: token });
     this.token = token;
@@ -113,7 +112,7 @@ class AuthManager {
   }
 }
 
-// Create single instance
+
 const authManager = new AuthManager();
 
 // Export a function that returns the same instance

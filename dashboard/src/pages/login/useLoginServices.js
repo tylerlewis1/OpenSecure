@@ -1,8 +1,12 @@
 import env from '../../../config.json';
 import useAuth from '../../background/useAuth.js';
-export default function LoginService() {
+import useUser from '../../background/useUser.js';
+
+export default function useLoginService() {
+    const { setUser } = useUser();
+    const auth = useAuth(); // ✅ Move this outside the login function
+
     const login = async (username, password, setLoading) => {
-        //TODO add encryption here
         setLoading(true);
         const response = await fetch(`${env.API_BASE_URL}:${env.SERVER_PORT}/api/login`, {
             method: 'POST',
@@ -13,13 +17,14 @@ export default function LoginService() {
         })
         setLoading(false); 
         if(response.status == 401) return alert('Invalid credentials');
-        const data = await response.json();
-        const auth = useAuth();
-        auth.setToken(data.token);
         
+        const data = await response.json();
+        console.log('Login successful, received token:', data);
+        auth.setToken(data.token); // ✅ Now using the auth from hook scope
+        setUser(data.user);
     }
 
-    return{
+    return {
         login
     }
 }
