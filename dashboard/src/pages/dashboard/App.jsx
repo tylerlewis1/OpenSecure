@@ -6,7 +6,6 @@ import useDashboardServices from './useDashboardServices';
 function App() {
   const logic = useDashboard();
   const state = useDashboardServices();
-  console.log(state);
     return (
         <div className="security-dashboard">
             {/* Header */}
@@ -45,7 +44,6 @@ function App() {
                         
                        {
                             state.systemState?.Sensors?.map((sensor) => {
-                                console.log(sensor);
                                 return <Sensor key={sensor.id} name={sensor.name} type={sensor.type} status={sensor.status} />;
                             })
                        }
