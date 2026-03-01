@@ -9,10 +9,18 @@ const frontendPath = path.join(__dirname, '../../dashboard/dist');
 dotenv.config();
 
 const app = express();
-app.use(cors({
-    origin: 'http://localhost:5173', // MUST match your frontend URL exactly
-    credentials: true                
-}));
+if (process.env.NODE_ENV === 'development') {
+    app.use(cors({
+        origin: `${process.env.HOST}${process.env.DEV_PORT}`,
+        credentials: true                
+    }));
+} else {
+    app.use(cors({
+        origin: `${process.env.HOST}${process.env.PORT}`,
+        credentials: true                
+    }));
+}
+
 
 app.use(express.json());
 
