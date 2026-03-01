@@ -2,12 +2,19 @@ const startBroker = require('./services/broker');
 const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
+
 const frontendPath = __dirname + "../../dashboard/dist";
+
 dotenv.config();
 
 const app = express();
+app.use(cors({
+    origin: 'http://localhost:5173', // MUST match your frontend URL exactly
+    credentials: true                
+}));
+
 app.use(express.json());
-app.use(cors());
+
 
 app.listen(process.env.PORT, () => {
   console.log(`Hub is on port ${process.env.PORT}`);

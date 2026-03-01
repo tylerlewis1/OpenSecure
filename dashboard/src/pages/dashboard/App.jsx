@@ -1,8 +1,11 @@
 import React from 'react';
 import './dashboard.css';
 import useDashboard from './useDashboard';
+import useDashboardServices from './useDashboardServices';
 function App() {
   const logic = useDashboard();
+  const state = useDashboardServices();
+  console.log(state.systemState.Armed);
     return (
         <div className="security-dashboard">
             {/* Header */}
@@ -17,16 +20,16 @@ function App() {
             {/* Arm/Disarm Control */}
             <div className="control-panel">
                 <div className="status-section">
-                    <div className="status-light armed"></div>
+                    <div className={`status-light ${state.systemState?.Armed ? 'armed' : 'disarmed'}`}></div>
                     <div className="status-text">
-                        <h2>ARMED</h2>
+                        <h2>{state.systemState?.Armed ? 'ARMED' : 'DISARMED'}</h2>
                         <p>All sensors active</p>
                     </div>
                 </div>
                 
                 <div className="arm-buttons">
-                    <button className="arm-btn armed">🔒 ARM</button>
-                    <button className="arm-btn disarmed">🔓 DISARM</button>
+                    <button onClick={() => state.armHandler(true)} className={`arm-btn ${state.systemState?.Armed ? 'armed' : 'disarmed'}`}>🔒 ARM</button>
+                    <button onClick={() => state.armHandler(false)} className={`arm-btn ${state.systemState?.Armed ? 'disarmed' : 'armed'}`}>🔓 DISARM</button>
                 </div>
 
                
