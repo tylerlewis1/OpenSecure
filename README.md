@@ -1,4 +1,5 @@
 # OpenSecure 🛡️
+**THIS IS A LEARNING PROJECT AND NOT MENT FOR PRODUCTION**
 
 OpenSecure is an open-source, DIY home security system designed to bridge the gap between affordability and professional-grade security. By leveraging the power of **Raspberry Pi** as a central hub and **ESP32** microcontrollers as modular sensor nodes, OpenSecure provides a customizable, privacy-focused alternative to commercial security systems.
 
