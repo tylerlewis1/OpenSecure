@@ -5,7 +5,7 @@ import state from './state.json' with { type: 'json' };
 
 export default function useStateHandler() {
     const getState = () => {
-        return state;
+        return JSON.parse(fs.readFileSync('./state.json', 'utf8'));
     };
     
     const updateState = (newState) => {
@@ -17,7 +17,7 @@ export default function useStateHandler() {
                 Object.assign(state, newState);
                 //update dashboard clients
                 clients.forEach(client => {
-                    client.write(`data: ${JSON.stringify(state)}\n\n`);
+                    client.write(`data: ${JSON.stringify(newState)}\n\n`);
                 });
             }
         });

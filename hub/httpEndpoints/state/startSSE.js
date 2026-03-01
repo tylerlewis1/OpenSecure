@@ -1,4 +1,4 @@
-let systemState = { armed: false, mode: 'disarmed' };
+import state from '../../state.json' with { type: 'json' };
 export let clients = [];
 
 export default async (req, res) => {
@@ -7,7 +7,7 @@ export default async (req, res) => {
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
     
-    res.write(`data: ${JSON.stringify(systemState)}\n\n`);
+    res.write(`data: ${JSON.stringify(state)}\n\n`);
 
     clients.push(res);
 

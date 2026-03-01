@@ -1,11 +1,12 @@
 {
   "Armed": false,
   "ConnectedSensors": 0,
-  "Devices": [
-    {},
-    {},
-    {},
-    {},
-    {}
+  "Sensors": [
+    {
+      "id": 1,
+      "name": "Front Door",
+      "type": "door",
+      "status": "closed"
+    }
   ]
 }

@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import env from '../../../config.json';
 
 export default function useDashboardServices() {
-    const [systemState, setSystemState] = useState({ armed: false, mode: 'disarmed' });
+    const [systemState, setSystemState] = useState({ armed: null, mode: 'disarmed' });
 
     useEffect(() => {
         const eventSource = new EventSource(`${env.API_BASE_URL}:${env.SERVER_PORT}/api/events`, { withCredentials: true });
         eventSource.onmessage = (event) => {
             const data = JSON.parse(event.data);
+            console.log('Received SSE data:', data);
             setSystemState(data);
         };
         
