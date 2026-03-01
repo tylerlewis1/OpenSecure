@@ -3,6 +3,7 @@ const { getState, updateState } = useStateHandler();
 
 module.exports = function arm(req, res) {
     try {
+        if (typeof req.body.armed !== 'boolean') return res.status(400).json({ message: "Invalid 'armed' value. Must be a boolean." });
         const armed = req.body.armed;
         const state = getState();
         state.Armed = armed;

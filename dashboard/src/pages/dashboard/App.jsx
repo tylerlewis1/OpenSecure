@@ -41,14 +41,15 @@ function App() {
                 <div className="sensor-category">
                     <h3>🚪 Doors</h3>
                     <div className="sensor-list">
-                        
-                       {
-                            state.systemState?.Sensors?.map((sensor) => {
-                                return <Sensor key={sensor.id} name={sensor.name} type={sensor.type} status={sensor.status} />;
-                            })
-                       }
-                       
-                           
+                        {
+                            state.systemState?.Sensors?.length > 0 ? (
+                                state.systemState.Sensors.map((sensor) => {
+                                    return <Sensor key={sensor.id} name={sensor.name} type={sensor.type} status={sensor.status} />;
+                                })
+                            ) : (
+                                <p>No sensors connected</p>
+                            )
+                        }    
                     </div>
                 </div>
 
