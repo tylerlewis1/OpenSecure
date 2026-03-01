@@ -2,8 +2,9 @@ const startBroker = require('./services/broker');
 const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
-const frontendPath = __dirname + "../../dashboard/dist";
+const frontendPath = path.join(__dirname, '../../dashboard/dist');
 
 dotenv.config();
 
