@@ -1,8 +1,11 @@
-import state from '../../state.json' with { type: 'json' };
-export let clients = [];
+const fs = require('fs');
+const path = require('path');
 
-export default async (req, res) => {
-    // 1. Critical SSE Headers
+let clients = [];
+
+module.exports = async (req, res) => {
+    const state = JSON.parse(fs.readFileSync(path.join(__dirname, '../../state.json'), 'utf8'));
+    
     res.setHeader('Content-Type', 'text/event-stream');
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
@@ -15,5 +18,6 @@ export default async (req, res) => {
         clients = clients.filter(client => client !== res);
         res.end();
     });
-    return {clients};
 };
+
+module.exports.clients = clients;

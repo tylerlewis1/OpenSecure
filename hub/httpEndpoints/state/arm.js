@@ -1,7 +1,7 @@
-import useStateHandler from '../../useStateHandler.js';
+const useStateHandler = require('../../useStateHandler.js');
 const { getState, updateState } = useStateHandler();
 
-export default function arm(req, res) {
+module.exports = function arm(req, res) {
     try {
         const armed = req.body.armed;
         const state = getState();
