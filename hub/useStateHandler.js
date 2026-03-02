@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 function useStateHandler() {
-    const getState = () => {
-        return JSON.parse(fs.readFileSync(path.join(__dirname, 'state.json'), 'utf8'));
+    const getState = async () => {
+        return await JSON.parse(fs.readFileSync(path.join(__dirname, 'state.json'), 'utf8'));
     };
     
     const updateState = (newState) => {

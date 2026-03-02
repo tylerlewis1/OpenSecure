@@ -6,4 +6,5 @@ const armHandler = require('./state/arm.js');
 router.post("/login", loginHandler);
 router.get("/events", stateSender);
 router.post("/arm", armHandler);
+
 module.exports = router;
